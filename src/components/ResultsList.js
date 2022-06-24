@@ -2,8 +2,13 @@ import React , {useState } from "react";
 import {View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import ResultsDetails from "./ResultsDetails";
 import { withNavigation } from "react-navigation";
+import Spinner from "./Animation";
 
 const ResultsList = ({ title, results, navigation }) => {
+  if(!results.length) {
+    return null;
+  }
+  
   return (
     <View style={styles.container}>
       <Text style={styles.titleStyle}>{title}</Text>
